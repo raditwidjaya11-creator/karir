@@ -1,0 +1,6 @@
+{
+  "name": "Karir Majalengka Super App",
+  "description": "Platform digital resmi ketenagakerjaan Pemerintah Kabupaten Majalengka untuk pencari kerja, perusahaan, investor, dan instansi daerah.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
