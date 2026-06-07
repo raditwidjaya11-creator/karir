@@ -46,10 +46,13 @@ export default function AK1Digital() {
         scale: 3,
         useCORS: true
       },
-      jsPDF: {
-        unit: "mm",
-        format: "a4",
-        orientation: "landscape"
+      <div
+  id="ak1-card"
+  style={{
+    width: "85.6mm",
+    height: "54mm"
+  }}
+>
       }
     })
     .save();
