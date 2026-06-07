@@ -34,9 +34,26 @@ export default function AK1Digital() {
   };
 
   const handleDownloadPDF = () => {
-    // Basic download print simulation
-    window.print();
-  };
+  const element = document.getElementById("ak1-card");
+
+  html2pdf()
+    .from(element)
+    .set({
+      margin: 0,
+      filename: `AK1-${formData.nik}.pdf`,
+      image: { type: "jpeg", quality: 1 },
+      html2canvas: {
+        scale: 3,
+        useCORS: true
+      },
+      jsPDF: {
+        unit: "mm",
+        format: "a4",
+        orientation: "landscape"
+      }
+    })
+    .save();
+};
 
   return (
     <div className="space-y-6" id="ak1-digital-root">
