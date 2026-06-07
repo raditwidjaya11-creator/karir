@@ -34,30 +34,36 @@ export default function AK1Digital() {
   };
 
   const handleDownloadPDF = () => {
-  const element = document.getElementById("ak1-card");
+  const printContents = document.getElementById("ak1-card").innerHTML;
 
-  html2pdf()
-    .from(element)
-    .set({
-      margin: 0,
-      filename: `AK1-${formData.nik}.pdf`,
-      image: { type: "jpeg", quality: 1 },
-      html2canvas: {
-        scale: 3,
-        useCORS: true
-      },
-      <div
-  id="ak1-card"
-  style={{
-    width: "85.6mm",
-    height: "54mm"
-  }}
->
-      }
-    })
-    .save();
+  const win = window.open("", "", "width=900,height=700");
+
+  win.document.write(`
+    <html>
+      <head>
+        <title>AK1 Digital</title>
+        <style>
+          body{
+            margin:20px;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+          }
+        </style>
+      </head>
+      <body>
+        ${printContents}
+      </body>
+    </html>
+  `);
+
+  win.document.close();
+
+  setTimeout(() => {
+    win.print();
+    win.close();
+  }, 500);
 };
-
   return (
     <div className="space-y-6" id="ak1-digital-root">
       {/* Overview Block */}
